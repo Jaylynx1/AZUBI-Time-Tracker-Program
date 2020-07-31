@@ -1,0 +1,27 @@
+#----------------------------------------AZUBI Time Tracker Porgram--------------------------------------------
+#By David Selorm Gebe, Ebo Ghartey-Koomson, Elvin Assiam
+
+
+def Time_Tracker():#Main program which prompts the user to choose between the Manual entry tracker or the automated tracker
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	print("Hello and welcome")
+	user_input = input("Would you like to MANUALLY ENTER your TIME STAMP to calculate your hourly pay?(Y/N)")
+	if user_input == ("Y"):
+		Manual_Track()
+	else:
+		user_input = input("Would you like to START WORK and have your hours AUTOMATICALLY tracked to calculate your pay?(Y/N)")
+		if user_input == ("Y"):
+			Auto_Track()
