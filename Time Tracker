@@ -25,15 +25,26 @@ def Time_Tracker():#Main program which prompts the user to choose between the Ma
                         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
                         writer.writeheader()
                         writer.writerow({'Time Started': (start_work), 'Time Ended':(stop_work) , 'Number of hours spent': Hours, 'Total money earned $': Money})
-        def Auto_Track():
-
-
-
-
-
-
-
-
+       
+	def Auto_Track():
+                import time
+                import csv
+                user_input = input("Type 'start' to start timer")
+                start = time.time()
+                print (f'You started work at {time.ctime(int(start))}')
+                user_input = input("Type 'stop' to stop timer")
+                if (user_input == 'stop'):
+                        stop = time.time()
+                        print(f'You ended work at {time.ctime(int(stop))}')
+                        Hours = (stop - start)/3600
+                        Money = (Hours * 5)
+                        print(f"Your total hours worked is: {Hours} hours")
+                        print(f"Based on that, you have made ${round(Money,2)}")
+                with open('time_track_info.csv', mode='w') as csv_file:
+                        fieldnames = ['Time Started', 'Time Ended ', 'Number of hours spent','Total money earned $']
+                        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+                        writer.writeheader()
+                        writer.writerow({'Time Started': time.ctime(int(start)), 'Time Ended ':time.ctime(int(stop)) , 'Number of hours spent': Hours, 'Total money earned $': Money})
 
 
 
