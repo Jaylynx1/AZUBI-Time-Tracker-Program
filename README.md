@@ -2,12 +2,9 @@
 
 
 
-
+Contributors: David Gebe, Elvin Assiam, Ebo Ghartey
 	
-  1.Implementation process
-	2. Design
-	3. program dependencies
-	4. team (strengths, strategy, weaknesses etc)
+ 
   
   
   Program Implementation:
