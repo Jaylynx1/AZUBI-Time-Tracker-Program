@@ -2,8 +2,8 @@
 #By David Selorm Gebe, Ebo Ghartey-Koomson, Elvin Assiam
 
 
-def Time_Tracker():#Main program which prompts the user to choose between the Manual entry tracker or the automated tracker
-        def Manual_Track():#Function to handle the case where user wants to manually enter start date and end date
+def Time_Tracker():
+        def Manual_Track():
                 import datetime
                 import time
                 from datetime import timedelta
@@ -25,8 +25,7 @@ def Time_Tracker():#Main program which prompts the user to choose between the Ma
                         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
                         writer.writeheader()
                         writer.writerow({'Time Started': (start_work), 'Time Ended':(stop_work) , 'Number of hours spent': Hours, 'Total money earned $': Money})
-       
-	def Auto_Track():#Function for case where user wants to use current system date and time for calculation without manually inputing the dates
+        def Auto_Track():
                 import time
                 import csv
                 user_input = input("Type 'start' to start timer")
@@ -36,8 +35,8 @@ def Time_Tracker():#Main program which prompts the user to choose between the Ma
                 if (user_input == 'stop'):
                         stop = time.time()
                         print(f'You ended work at {time.ctime(int(stop))}')
-                        Hours = (stop - start)/3600
-                        Money = (Hours * 5)
+                        Hours = round(((stop - start)/3600),2)
+                        Money = round((Hours * 5),2)
                         print(f"Your total hours worked is: {Hours} hours")
                         print(f"Based on that, you have made ${round(Money,2)}")
                 with open('time_track_info.csv', mode='w') as csv_file:
@@ -45,14 +44,11 @@ def Time_Tracker():#Main program which prompts the user to choose between the Ma
                         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
                         writer.writeheader()
                         writer.writerow({'Time Started': time.ctime(int(start)), 'Time Ended ':time.ctime(int(stop)) , 'Number of hours spent': Hours, 'Total money earned $': Money})
-
-
-
-	print("Hello and welcome")
-	user_input = input("Would you like to MANUALLY ENTER your TIME STAMP to calculate your hourly pay?(Y/N)")
-	if user_input == ("Y"):
-		Manual_Track()
-	else:
-		user_input = input("Would you like to START WORK and have your hours AUTOMATICALLY tracked to calculate your pay?(Y/N)")
-		if user_input == ("Y"):
-			Auto_Track()
+        print("Hello and welcome")
+        user_input = input("Would you like to MANUALLY ENTER your TIME STAMP to calculate your hourly pay?(Y/N)")
+        if user_input == ("Y"):
+                Manual_Track()
+        else:
+                user_input = input("Would you like to START WORK and have your hours AUTOMATICALLY tracked to calculate your pay?(Y/N)")
+                if user_input == ("Y"):
+                        Auto_Track()
