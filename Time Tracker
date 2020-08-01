@@ -3,6 +3,29 @@
 
 
 def Time_Tracker():#Main program which prompts the user to choose between the Manual entry tracker or the automated tracker
+        def Manual_Track():
+                import datetime
+                import time
+                from datetime import timedelta
+                import csv
+                datetimeFormat = '%Y-%m-%d %H:%M'
+                print("Please enter date and time in format = 'year-month-day time' \n For example = '2016-04-16 13:00'")
+                start_work = input("Please enter START DATE and TIME: ")
+                stop_work = input("Please enter END DATE and TIME: ")
+                StopHours = (datetime.datetime.strptime(stop_work, datetimeFormat))
+                StartHours = (datetime.datetime.strptime(start_work, datetimeFormat))
+                Diff_seconds = (StopHours - StartHours).seconds
+                Hours = Diff_seconds/3600
+                Money = (Hours * 5)
+                print(f"Your total hours worked is: {Hours} hours")
+                print(f"Based on that, you have made ${Money}")
+
+                with open('time_track_info.csv', mode='w') as csv_file:
+                        fieldnames = ['Time Started', 'Time Ended', 'Number of hours spent','Total money earned $']
+                        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+                        writer.writeheader()
+                        writer.writerow({'Time Started': (start_work), 'Time Ended':(stop_work) , 'Number of hours spent': Hours, 'Total money earned $': Money})
+        def Auto_Track():
 
 
 
