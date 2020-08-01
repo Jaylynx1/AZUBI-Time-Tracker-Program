@@ -48,9 +48,6 @@ def Time_Tracker():#Main program which prompts the user to choose between the Ma
 
 
 
-
-
-
 	print("Hello and welcome")
 	user_input = input("Would you like to MANUALLY ENTER your TIME STAMP to calculate your hourly pay?(Y/N)")
 	if user_input == ("Y"):
