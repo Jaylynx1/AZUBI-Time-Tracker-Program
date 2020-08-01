@@ -11,8 +11,8 @@ def Time_Tracker():
                 StopHours = (datetime.datetime.strptime(stop_work, datetimeFormat))
                 StartHours = (datetime.datetime.strptime(start_work, datetimeFormat))
                 Diff_seconds = (StopHours - StartHours).seconds
-                Hours = Diff_seconds/3600
-                Money = (Hours * 5)
+                Hours = round((Diff_seconds/3600),2)
+                Money = round((Hours * 5),2)
                 print(f"Your total hours worked is: {Hours} hours")
                 print(f"Based on that, you have made ${Money}")
 
