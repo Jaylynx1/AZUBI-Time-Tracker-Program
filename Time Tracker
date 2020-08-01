@@ -3,7 +3,7 @@
 
 
 def Time_Tracker():#Main program which prompts the user to choose between the Manual entry tracker or the automated tracker
-        def Manual_Track():
+        def Manual_Track():#Function to handle the case where user wants to manually enter start date and end date
                 import datetime
                 import time
                 from datetime import timedelta
@@ -26,7 +26,7 @@ def Time_Tracker():#Main program which prompts the user to choose between the Ma
                         writer.writeheader()
                         writer.writerow({'Time Started': (start_work), 'Time Ended':(stop_work) , 'Number of hours spent': Hours, 'Total money earned $': Money})
        
-	def Auto_Track():
+	def Auto_Track():#Function for case where user wants to use current system date and time for calculation without manually inputing the dates
                 import time
                 import csv
                 user_input = input("Type 'start' to start timer")
