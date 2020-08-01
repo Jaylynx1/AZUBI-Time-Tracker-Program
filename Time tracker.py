@@ -31,8 +31,8 @@ def Time_Tracker():
                 if (user_input == 'stop'):
                         stop = time.time()
                         print(f'You ended work at {time.ctime(int(stop))}')
-                        Hours = (stop - start)/3600
-                        Money = (Hours * 5)
+                        Hours = round(((stop - start)/3600),2)
+                        Money = round((Hours * 5),2)
                         print(f"Your total hours worked is: {Hours} hours")
                         print(f"Based on that, you have made ${round(Money,2)}")
                 with open('time_track_info.csv', mode='w') as csv_file:
